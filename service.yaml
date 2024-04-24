@@ -53,12 +53,9 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 31391
+      nodePort: 
   selector:
     app: swagger-ui
-  clusterIP: 172.20.254.212
-  clusterIPs:
-    - 172.20.254.212
   type: LoadBalancer
   sessionAffinity: None
   externalTrafficPolicy: Cluster
