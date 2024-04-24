@@ -23,7 +23,7 @@ spec:
       port: 8080
       targetPort: 8080
   internalTrafficPolicy: Cluster
-  type: LoadBalancer
+  type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:

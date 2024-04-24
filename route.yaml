@@ -4,13 +4,8 @@ metadata:
   name: swagger-ui
   namespace: swagger-ui
 spec:
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: swagger-ui
-                port:
-                  number: 8080
+  defaultBackend:
+    service:
+      name: swagger-ui
+      port:
+        number: 8080
