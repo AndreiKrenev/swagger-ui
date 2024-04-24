@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: swagger-ui
   namespace: default
-  deletionGracePeriodSeconds: 0
   labels:
     app: swagger-ui
     app.kubernetes.io/instance: swagger-ui
