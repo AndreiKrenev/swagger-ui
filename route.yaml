@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: swagger-ui
-  namespace: swagger-ui
+  name: swagger
+  namespace: default
 spec:
   rules:
     - https:
         paths:
-          - path: /swagger-ui
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: swagger-ui
+                name: swagger
                 port:
                   number: 8080
