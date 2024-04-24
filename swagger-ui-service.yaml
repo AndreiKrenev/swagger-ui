@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: swagger-ui
-  namespace: swagger-ui
   labels:
     app: swagger-ui
 spec:
