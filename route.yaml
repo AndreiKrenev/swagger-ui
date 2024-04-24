@@ -1,0 +1,24 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: swagger-ui
+  namespace: swagger-ui
+  labels:
+    app: swagger-ui
+    app.kubernetes.io/component: swagger-ui
+    app.kubernetes.io/instance: swagger-ui
+    app.kubernetes.io/name: swagger-ui
+    app.kubernetes.io/part-of: swagger-ui-app
+    app.openshift.io/runtime-version: latest
+spec:
+  host: a472bd5e5a06f4e9b847ea2e4d3271f5-1333097664.us-east-1.elb.amazonaws.com
+  to:
+    kind: Service
+    name: swagger-ui
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
