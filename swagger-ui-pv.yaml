@@ -8,7 +8,7 @@ metadata:
 spec:
   storageClassName: gp2
   capacity:
-    storage: 250Mi
+    storage: 1000Mi
   accessModes:
     - ReadWriteMany
   hostPath:
