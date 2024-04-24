@@ -1,65 +1,26 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: swagger-ui
-  namespace: default
   labels:
-    app: swagger-ui
-    app.kubernetes.io/instance: swagger-ui
-  finalizers:
-    - service.kubernetes.io/load-balancer-cleanup
-  managedFields:
-    - manager: kubectl-expose
-      operation: Update
-      apiVersion: v1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            .: {}
-            f:app: {}
-            f:app.kubernetes.io/instance: {}
-        f:spec:
-          f:allocateLoadBalancerNodePorts: {}
-          f:externalTrafficPolicy: {}
-          f:internalTrafficPolicy: {}
-          f:ports:
-            .: {}
-            k:{"port":8080,"protocol":"TCP"}:
-              .: {}
-              f:port: {}
-              f:protocol: {}
-              f:targetPort: {}
-          f:selector: {}
-          f:sessionAffinity: {}
-          f:type: {}
-    - manager: aws-cloud-controller-manager
-      operation: Update
-      apiVersion: v1
-      time: '2024-04-24T15:10:53Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:finalizers:
-            .: {}
-            v:"service.kubernetes.io/load-balancer-cleanup": {}
-        f:status:
-          f:loadBalancer:
-            f:ingress: {}
-      subresource: status
-  selfLink: /api/v1/namespaces/default/services/swagger-ui
+    app: swagger
+  name: swagger
+  namespace: default
+  resourceVersion: "65565"
 spec:
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-      nodePort: 
-  selector:
-    app: swagger-ui
-  type: LoadBalancer
-  sessionAffinity: None
-  externalTrafficPolicy: Cluster
-  ipFamilies:
-    - IPv4
-  ipFamilyPolicy: SingleStack
   allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: swagger
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
