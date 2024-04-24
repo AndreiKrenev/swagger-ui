@@ -5,19 +5,10 @@ metadata:
   namespace: swagger-ui
   labels:
     app: swagger-ui
-    app.kubernetes.io/component: swagger-ui
-    app.kubernetes.io/instance: swagger-ui
-    app.kubernetes.io/name: swagger-ui
-    app.kubernetes.io/part-of: swagger-ui-app
-    app.openshift.io/runtime-version: latest
 spec:
   ipFamilies:
     - IPv4
   ports:
-    - name: 80-tcp
-      protocol: TCP
-      port: 80
-      targetPort: 80
     - name: 8080-tcp
       protocol: TCP
       port: 8080
