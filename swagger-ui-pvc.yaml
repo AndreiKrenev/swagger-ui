@@ -5,9 +5,10 @@ metadata:
   labels:
     app: swagger-ui
 spec:
+  volumeMode: Filesystem
   storageClassName: gp2
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 250Mi

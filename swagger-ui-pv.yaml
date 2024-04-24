@@ -6,10 +6,13 @@ metadata:
     type: local
     app: swagger-ui
 spec:
+  volumeMode: Filesystem
   storageClassName: gp2
   capacity:
-    storage: 1000Mi
+    storage: 1Gi
   accessModes:
-    - ReadWriteMany
-  hostPath:
-    path: "/mnt/data"
+    - ReadWriteOnce
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: swagger-ui
+    name: swagger-ui-pv-claim
