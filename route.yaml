@@ -1,4 +1,4 @@
-kind: Route
+kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
   name: swagger-ui
@@ -9,12 +9,14 @@ metadata:
       name: swagger-ui
       controller: true
 spec:
-  host: a472bd5e5a06f4e9b847ea2e4d3271f5-1333097664.us-east-1.elb.amazonaws.com
-  path: /
-  to:
-    kind: Service
-    name: swagger-ui
-    weight: 100
-  port:
-    targetPort: 8080-tcp
-  wildcardPolicy: None
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: swagger-ui
+                port:
+                  number: 8080
